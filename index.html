@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creare Profil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="back">
+        <h2>Creare Profil</h2>
+        <img src="avatar.png" alt="Avatar" class="avatar">
+        <form id="profile-form">
+            <label for="name">Nume:</label>
+            <input type="text" id="name" required>
+
+            <label for="sex">Sex:</label>
+            <select id="sex" required>
+                <option value="Male">Masculin</option>
+                <option value="Female">Feminin</option>
+                <option value="Other">Altul</option>
+            </select>
+
+            <label for="age">Vârstă:</label>
+            <input type="number" id="age" min="18" required>
+
+            <label for="technologies">Tehnologii cunoscute:</label>
+            <select id="technologies" multiple>
+                <option value="java">Java</option>
+                <option value="c">C</option>
+                <option value="dotnet">.NET</option>
+                <option value="angular">Angular</option>
+                <option value="react">React</option>
+                <option value="react-native">React Native</option>
+                <option value="go">Go</option>
+                <option value="rust">Rust</option>
+            </select>
+
+            <div id="projects">
+                <h3>Proiecte</h3>
+                <button type="button" onclick="addProject()">Adaugă Proiect</button>
+            </div>
+
+            <button type="submit">Creează Profil</button>
+        </form>
+
+        <p id="response-message"></p>
+    </div>
+
+    <script>
+        function addProject() {
+            const projectsDiv = document.getElementById("projects");
+            const projectHTML = `
+                <div class="project-entry">
+                    <input type="text" name="project_names" placeholder="Nume Proiect" required>
+                    <input type="text" name="project_descriptions" placeholder="Descriere" required>
+                    <input type="url" name="project_links" placeholder="Link Proiect (https://)">
+                </div>`;
+            projectsDiv.insertAdjacentHTML("beforeend", projectHTML);
+        }
+    </script>
+</body>
+</html>
